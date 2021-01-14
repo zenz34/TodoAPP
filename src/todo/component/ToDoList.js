@@ -8,14 +8,12 @@ const TodoList = ({ todos }) => (
             ? todos.map((todo, index) => {
                   return <Todo key={`todo-${todo.id}`} todo={todo} />;
               })
-            : "No todos, yay!"}
+            : "No todo!"}
     </ul>
 );
 
 
 const mapStateToProps = (state) => {
-    const { visibilityFilter } = state;
-    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
     return { todos };
 };
 

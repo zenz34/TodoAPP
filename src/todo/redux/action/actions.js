@@ -8,6 +8,7 @@ export const addTodo = (content) => ({
     payload: {
         id: ++nextTodoId,
         content,
+        completed: false
     },
 });
 

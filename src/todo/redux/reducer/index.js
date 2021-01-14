@@ -2,7 +2,6 @@ import { ADD_TODO, TOGGLE_TODO } from "../actions";
 
 const initialState = {
     allIds: [],
-    byIds: {},
 };
 
 export default function (state = initialState, action) {
@@ -11,28 +10,28 @@ export default function (state = initialState, action) {
             const { id, content } = action.payload;
             return {
                 ...state,
-                allIds: [...state.allIds, id],
-                byIds: {
-                    ...state.byIds,
-                    [id]: {
+                allIds: [...state.allIds, {
+                        id,
                         content,
-                        completed: false,
+                        completed,
                     },
-                },
+                ]
             };
         }
         case TOGGLE_TODO: {
             const { id } = action.payload;
-            return {
-                ...state,
-                byIds: {
-                    ...state.byIds,
-                    [id]: {
-                        ...state.byIds[id],
-                        completed: !state.byIds[id].completed,
-                    },
-                },
-            };
+            const allIds = state.allIds.filter((curElement) => {
+                if (curElement.id === id) {
+                    return {
+                        ...curElement, 
+                        completed: !curElement.completed
+                    }
+                }
+
+                return curElement
+            })
+            
+            return {...state, allIds: allIds};
         }
         default:
             return state;
