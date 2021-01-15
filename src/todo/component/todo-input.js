@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../redux/action";
 
-class AddTodo extends React.Component {
+class TodoInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = { input: "" };
@@ -32,4 +32,4 @@ class AddTodo extends React.Component {
     }
 }
 
-export default connect(null, { addTodo })(AddTodo);
+export default connect(null, { addTodo })(TodoInput);

@@ -11,10 +11,10 @@ export const Demo2 = declareSubApp({
 });
 
 
-// export const Todo = declareSubApp({
-//   name: "todo",
-//   getModule: () => import("./todo")
-// });
+export const Todo = declareSubApp({
+  name: "todo",
+  getModule: () => import("./todo")
+});
 
 
 xarcV2.debug("app.tsx");
