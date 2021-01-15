@@ -3,7 +3,8 @@ import { load } from "@xarc/app/support";
 const electrodeServer = require("@xarc/fastify-server");
 
 import { config } from "./config";
-import { Demo2, home, Todo } from "../app";
+import { Demo2, home } from "../app";
+// import { Demo2, home, Todo } from "../app";
 
 async function start() {
   await load({
@@ -26,7 +27,7 @@ async function start() {
             subApps: [
               { name: home.name, ssr: true },
               { name: Demo2.name, ssr: true },
-              { name: Todo.name, ssr: false }
+              // { name: Todo.name, ssr: true }
             ],
             prodAssetData: {
               cdnMap: "config/assets.json"

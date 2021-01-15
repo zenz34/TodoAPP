@@ -16,5 +16,5 @@
     "alwaysStrict": true,
     "strictFunctionTypes": true
   },
-  "include": ["src"]
+  "include": ["src", "static/**/*"]
 }

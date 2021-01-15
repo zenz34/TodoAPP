@@ -519,3 +519,4 @@ yarn-debug.log*
 yarn-error.log*
 .fynpo
 
+archetype-debug.log
