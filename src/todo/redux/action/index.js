@@ -1,18 +1,19 @@
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
 
-let nextTodoId = 0;
+let todoId = 0;
 
 export const addTodo = (content) => ({
     type: ADD_TODO,
     payload: {
-        id: ++nextTodoId,
+        id: todoId++,
         content,
         completed: false
     },
 });
 
-export const toggleTodo = (id) => ({
+export const toggleTodo = (id) => {
+   return {
     type: TOGGLE_TODO,
     payload: { id },
-});
+}};

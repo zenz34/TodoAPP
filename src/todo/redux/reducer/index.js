@@ -1,39 +1,40 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions";
+import { ADD_TODO, TOGGLE_TODO } from "../action";
 
 const initialState = {
-    allIds: [],
+  todos: [],
 };
 
-export default function (state = initialState, action) {
-    switch (action.type) {
-        case ADD_TODO: {
-            const { id, content } = action.payload;
-            return {
-                ...state,
-                allIds: [...state.allIds, {
-                        id,
-                        content,
-                        completed,
-                    },
-                ]
-            };
-        }
-        case TOGGLE_TODO: {
-            const { id } = action.payload;
-            const allIds = state.allIds.filter((curElement) => {
-                if (curElement.id === id) {
-                    return {
-                        ...curElement, 
-                        completed: !curElement.completed
-                    }
-                }
-
-                return curElement
-            })
-            
-            return {...state, allIds: allIds};
-        }
-        default:
-            return state;
+export function todoReducer(state = initialState, action) {
+  switch (action.type) {
+    case ADD_TODO: {
+      const { id, content, completed } = action.payload;
+      return {
+        todos: [
+          ...state.todos,
+          {
+            id,
+            content,
+            completed,
+          },
+        ],
+      };
     }
+    case TOGGLE_TODO: {
+      const { id } = action.payload;
+      const todos = state.todos.map((curElement) => {
+        if (curElement.id === id) {
+          return {
+            ...curElement,
+            completed: !curElement.completed,
+          };
+        }
+
+        return curElement;
+      });
+
+      return { todos: todos };
+    }
+    default:
+      return state;
+  }
 }

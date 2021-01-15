@@ -1,11 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
 // import { React, ReactSubApp, createDynamicComponent, staticPropsFeature } from "@xarc/react";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import TodoApp from "./component/todoapp";
 
-export const Todo = () => (
+const Todo = () => (
   <div>
     <Provider store={store}>
       <TodoApp />
@@ -13,6 +12,7 @@ export const Todo = () => (
   </div>
 );
 
+export default Todo;
 
 // export const subapp: ReactSubApp = {
 //   Component: Todo

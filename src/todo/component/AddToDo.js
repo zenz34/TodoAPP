@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo } from "../redux/action";
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -8,11 +8,11 @@ class AddTodo extends React.Component {
         this.state = { input: "" };
     }
 
-    updateInput = (input) => {
+    inputOnChange = (input) => {
         this.setState({ input });
     };
 
-    handleAddTodo = () => {
+    addTodo = () => {
         this.props.addTodo(this.state.input);
         this.setState({ input: "" });
     };
@@ -21,10 +21,10 @@ class AddTodo extends React.Component {
         return (
             <div>
                 <input
-                    onChange={(e) => this.updateInput(e.target.value)}
+                    onChange={(e) => this.inputOnChange(e.target.value)}
                     value={this.state.input}
                 />
-                <button onClick={this.handleAddTodo}>
+                <button onClick={this.addTodo}>
                     Add Todo
                 </button>
             </div>

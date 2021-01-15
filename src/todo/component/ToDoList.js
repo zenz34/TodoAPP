@@ -14,6 +14,7 @@ const TodoList = ({ todos }) => (
 
 
 const mapStateToProps = (state) => {
+    const { todos } = state;
     return { todos };
 };
 
